@@ -38,4 +38,4 @@ if (randomNumber === 0) {
   eightBall = 'Signs point to yes';
 }
 
-console.log(eightB
+console.log(eightBall)

@@ -22,20 +22,28 @@ Race number:
 But we didn’t plan for runners that are exactly 18! We’ll handle that by the end of the project.
 */
 
-let raceNumber = Math.floor(Math.random() * 1000);
-let registeredEarly = true;
-let age = 20;
 
-if (age > 18 && registeredEarly === true) {
+// Assign a random race number between 0 and 999.
+let raceNumber = Math.floor(Math.random() * 1000);
+ 
+// Set whether the runner registered ealry (true or false).
+const registeredEarly = true;
+
+// Set the runner's age.
+const runnersAge = 18;
+
+// If the runner is an adult and registered early, add 1000 to their race number.
+if (runnersAge > 18 && registeredEarly) {
   raceNumber += 1000;
-} 
-// Early adult runners
-if (age > 18 && registeredEarly === true) {
-  console.log(`The race starts at 9:30 am, and you Race Number is: ${raceNumber}`);
-} else if (age > 18 && !registeredEarly) {
-  console.log(`The race starts at 11:00 am, and you Race Number is: ${raceNumber}`);
-} else if (age < 18) {
-  console.log(`The race starts at 12:30 pm, and you Race Number is: ${raceNumber}`);
+}
+
+// Determine race time and print instructions.
+if (runnersAge > 18 && registeredEarly) {
+  console.log(`Your race starts at 9:30 am. Your race number is ${raceNumber}`);
+} else if (runnersAge > 18 && !registeredEarly) {
+  console.log(`Your race starts at 11:00 am. Your race number is ${raceNumber}`);
+} else if (runnersAge < 18) {
+  console.log(`Your race starts at 12:30 pm. Your race number is ${raceNumber}`);
 } else {
-  console.log('Please go to the front desk (registration desk)');
+  console.log('Please go to the registration desk');
 }

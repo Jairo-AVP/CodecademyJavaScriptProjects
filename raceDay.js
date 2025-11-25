@@ -26,7 +26,7 @@ But we didn’t plan for runners that are exactly 18! We’ll handle that by the
 // Assign a random race number between 0 and 999.
 let raceNumber = Math.floor(Math.random() * 1000);
  
-// Set whether the runner registered ealry (true or false).
+// Set whether the runner registered early (true or false).
 const registeredEarly = true;
 
 // Set the runner's age.

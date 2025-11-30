@@ -19,81 +19,79 @@ Start the program and display the results.
 
 // Function 1: get the user's choice.
 
-const getUserChoice = (userInput) => {
+// Function 1: it takes the user's input, makes it lowercase, and checks if it's valid ('rock', 'paper', 'scissors', or 'bomb'). If valid, it returns the choice. 
+const getUserChoice = userInput => {
   userInput = userInput.toLowerCase();
- if (userInput === 'rock') {
+  if (userInput === 'rock') {
     return userInput;
   } else if (userInput === 'paper') {
     return userInput;
   } else if (userInput === 'scissors') {
     return userInput;
-  } else if (userInput == 'bomb') {
-    return userInput;
-  }else {
-    console.log('This is not a valid choice! Please enter one of the following options: rock, paper, or scissors');
+  } else {
+    console.log('Invalid choice! Enter either: rock, paper, scissors, bomb');
   }
-}
+};
 
-// Testing the function getUserChoice.
-// console.log(getUserChoice('scissors'));
+// Testing getUserChoice() function with the input of 'rock.'
+// console.log(getUserChoice('rock'));
 
-// Function 2: create a function to let the computer make a choice.
+
+// Function 2: it randomly picks a number (0, 1, or 2) and returns 'rock', 'paper', or 'scissors' based on the number.
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
-  if ( randomNumber === 0) {
+  if (randomNumber === 0) {
     return 'rock';
   } else if (randomNumber === 1) {
     return 'paper';
   } else if (randomNumber === 2) {
     return 'scissors';
   }
-}
+};
 
-// Testing the function getComputerChoice.
-// console.log(getComputerChoice());
+// Testing getComputerChoice() function several times ans printing the result to the console. 
+console.log(getComputerChoice());
 
-// Function 3: to determine the winner. 
+
+// Function 3: it compares the user's and computer's choices. If both are the same, it's a tie. If the user chose 'bomb', the user wins. Otherrwise, it checks the rules of the game to decide who wins.
+
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === 'bomb') {
-    return 'The user is the Winner!'
-  }if (userChoice === computerChoice) {
-    return "It's a tie!"
+    return 'The user won!'
+  } if (userChoice === computerChoice) {
+    return 'It\'s a tie!';
   } if (userChoice === 'rock') {
     if (computerChoice === 'paper') {
-      return 'The Computer is the Winner!';
-    } else {
-      return 'The User is the Winner!'
-      }
+      return 'The computer won!';
+    }
   } if (userChoice === 'paper') {
     if (computerChoice === 'scissors') {
-      return 'The Computer is the Winner!';
-    } else {
-      return 'The User is the Winner!';
+      return "The computer won!";
     }
   } if (userChoice === 'scissors') {
-    if (computerChoice === 'rock') {
-      return 'The Computer is the Winner!';
-    } else {
-      return 'The User is the Winner!';
+      if (computerChoice === 'paper') {
+        return 'The user won!';
+      }
+    } if (userChoice === 'paper') {
+      if (computerChoice === 'rock') {
+        return 'The user won!'
+      }
     }
-  }
-}
+  };
 
-// Testing function dtermineWinner().
+// Testing determineWinner() function.
 // console.log(determineWinner('paper', 'scissors'));
 // console.log(determineWinner('paper', 'paper'));
 // console.log(determineWinner('paper', 'rock'));
 
-
-// Function 4: To start the competition between user & computer.
+// Function 4: It calls the above functions, prints both choices, and prints who won. 
 function playGame() {
   const userChoice = getUserChoice('rock');
   const computerChoice = getComputerChoice();
-  console.log(userChoice);
-  console.log(computerChoice);
+  console.log(`You threw: ${userChoice}`);
+  console.log(`The computer threw: ${computerChoice}`);
   // Determine who won.
   console.log(determineWinner(userChoice, computerChoice));
-}
+};
 
 playGame();
-

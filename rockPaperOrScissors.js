@@ -28,6 +28,8 @@ const getUserChoice = userInput => {
     return userInput;
   } else if (userInput === 'scissors') {
     return userInput;
+  } else if (userInput === 'bomb') {
+    return userInput;
   } else {
     console.log('Invalid choice! Enter either: rock, paper, scissors, bomb');
   }
@@ -57,27 +59,29 @@ console.log(getComputerChoice());
 
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === 'bomb') {
-    return 'The user won!'
-  } if (userChoice === computerChoice) {
+    return 'User wins!';
+  } else if (userChoice === computerChoice) {
     return 'It\'s a tie!';
-  } if (userChoice === 'rock') {
+  } else if (userChoice === 'rock') {
     if (computerChoice === 'paper') {
-      return 'The computer won!';
+      return 'Computer wins!';
+    } else {
+      return 'User Wins!';
     }
-  } if (userChoice === 'paper') {
+  } else if (userChoice === 'paper') {
     if (computerChoice === 'scissors') {
-      return "The computer won!";
+      return 'Computer wins!';
+    } else {
+      return 'User wins!';
     }
-  } if (userChoice === 'scissors') {
-      if (computerChoice === 'paper') {
-        return 'The user won!';
-      }
-    } if (userChoice === 'paper') {
-      if (computerChoice === 'rock') {
-        return 'The user won!'
-      }
+  } else if (userChoice === 'scissors') {
+    if (computerChoice === 'rock') {
+      return 'Computer wins!';
+    } else {
+      return 'User wins!';
     }
-  };
+  }
+};
 
 // Testing determineWinner() function.
 // console.log(determineWinner('paper', 'scissors'));
